@@ -1,0 +1,39 @@
+.register-main-div{
+    margin: 10px auto;
+    padding: 1rem;
+    max-width: 38rem;
+    border-radius: 8px;
+}
+
+.register-title{
+    display: flex;
+    align-items: center;
+}
+
+.register-icon{
+    height: 30px;
+}
+
+.register-image{
+    display: block;
+    margin: auto;
+    height: 150px;
+}
+
+.register-container{
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.register-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.register-button{
+    width: 350px;
+    margin: 10px;
+}
+
