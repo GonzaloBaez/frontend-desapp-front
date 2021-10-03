@@ -1,29 +1,18 @@
-import React,{Component} from 'react';
-import RegisterPage from './component/RegisterPage'
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React,{useState} from 'react';
 import './App.css';
+import Home from './Home';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-class App extends Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      user: undefined
-    }
-  }
 
-  getUserFromChild = (user) =>{
-    this.setState({user:user})
-  }
-
+class App extends React.Component{
   render(){
     return(
       <BrowserRouter>
-        <Switch>
-            <Route exact path="/" render={props => <RegisterPage assignUserInParent={this.getUserFromChild} />} />
-        </Switch>
-      </BrowserRouter>
-    )
+      <Switch>
+        <Route exact path="/home" component={Home}/>
+      </Switch>
+    </BrowserRouter>
+    );
   }
 }
-
 export default App;
