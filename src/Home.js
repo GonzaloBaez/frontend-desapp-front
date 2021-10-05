@@ -8,30 +8,41 @@ function Home(){
     const [criptos,setCriptos] = useState({});
     const [showCriptos,setShowCriptos] = useState(false)
     const [dollarQuote,setDollarQuote] = useState(0)
+    const config = {
+        headers:{'Authorization': 'Bearer '+localStorage.getItem("token"),
+                'Access-Control-Allow-Origin': 'http://localhost:3000'}
+    };
+    
 
     useEffect(()=>{
-        getCriptosQuoteInARS()
+        getCriptos()
+
       },[])
 
 
       const getCriptosQuoteInARS = () =>{
-        setDollarQuote(189)
-        if(dollarQuote == 0){
-            axios.get("http://localhost:8080/api/dollar/")
-            .then((response) => {
-                let dollarPrice = JSON.parse(JSON.stringify(response.data))
-                setDollarQuote(dollarPrice)
-            })
-        }
-        getCriptos()
+
+        console.log("TOKEN IS: "+ localStorage.getItem("token"))
+        axios.get("http://localhost:8080/api/dollar/",config)
+        .then((response) => {
+            let dollarPrice = JSON.parse(JSON.stringify(response.data))
+            setDollarQuote(dollarPrice)
+            console.log("dollar "+ dollarQuote)
+            
+        }).catch(error =>{
+            console.log("Error 1234: " + error)
+        })
       }
+
       const getCriptos = () =>{
-        axios.get("http://localhost:8080/api/cryptos/quotes")
+
+        axios.get("http://localhost:8080/api/cryptos/quotes",config)
         .then((response) => {
             let responseCripto = JSON.parse(JSON.stringify(response.data))
             setCriptos(responseCripto)
             setShowCriptos(true)
         })
+
       }
     
     return(
