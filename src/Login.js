@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 import React,{useState} from 'react';
-import api from "./api/api";
+import axios from 'axios';
 import './styles/Login.css'
 
 function Login(){
@@ -10,6 +10,8 @@ function Login(){
         username: '',
         password: ''
     })
+
+    const [isInvalidLogin,setIsInvalidLogin] = useState(false)
 
     const handleInputChange = (event) =>{
         event.preventDefault()
@@ -21,15 +23,15 @@ function Login(){
 
     const handleLogin = (event) =>{
         event.preventDefault();
-        console.log(data.username)
-        api.getAuth(data)
-            .then((response =>{
-                localStorage.setItem("token",response.token)
+        axios
+            .post('http://localhost:8080/authenticate',data)
+            .then((response) =>{
+                localStorage.setItem("token",response.data.token)
+                let token = localStorage.getItem("token")
+                console.log(token)
                 history.push('/home')
-            }))
-            .catch(error =>{
-                
             })
+            .catch((error) => setIsInvalidLogin(true))
     }
 
     const handleRegister = (event) =>{
@@ -53,6 +55,11 @@ function Login(){
                     <div className="form-group">
                         <button className="btn btn-secondary" onClick={handleRegister}> Register</button>
                     </div>
+                    {isInvalidLogin &&
+                        <div class="alert alert-warning" role="alert">
+                            Correo o contraseña invalidos
+                        </div>
+                    }
                 </form>
             </div>
         </>

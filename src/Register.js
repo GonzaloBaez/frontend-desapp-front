@@ -21,7 +21,8 @@ function Register(){
         axios
            .post('http://localhost:8080/register',data)
             .then((response => {
-                history.push('/home')
+                console.log(response.data)
+                history.push('/')
             }))
     }
 
