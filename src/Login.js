@@ -1,7 +1,7 @@
-import axios from "axios";
 import { useHistory } from "react-router-dom";
-import React,{userEffect,useState} from 'react';
-
+import React,{useState} from 'react';
+import api from "./api/api";
+import './styles/Login.css'
 
 function Login(){
     let history = useHistory()
@@ -21,14 +21,20 @@ function Login(){
 
     const handleLogin = (event) =>{
         event.preventDefault();
-        axios
-            .post('http://localhost:8080/authenticate',data)
+        console.log(data.username)
+        api.getAuth(data)
             .then((response =>{
-                localStorage.setItem("token",response.data.token)
-                let token = localStorage.getItem("token")
-                console.log(token)
+                localStorage.setItem("token",response.token)
                 history.push('/home')
             }))
+            .catch(error =>{
+                
+            })
+    }
+
+    const handleRegister = (event) =>{
+        event.preventDefault()
+        history.push('/register')
     }
 
     return(
@@ -43,6 +49,9 @@ function Login(){
                     </div>
                     <div className="form-group">  
                         <button required type="submit" className="btn btn-primary"> Login </button>
+                    </div>
+                    <div className="form-group">
+                        <button className="btn btn-secondary" onClick={handleRegister}> Register</button>
                     </div>
                 </form>
             </div>
