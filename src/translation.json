@@ -1,0 +1,22 @@
+ {   
+    "enUS": {
+        "translation": {
+            "dates":"The date is {{ date, short }}"
+            ,
+            "language": {
+                "enUS": "English",
+                "es": "Spanish"
+            }
+        }
+    },
+
+    "es": {
+        "translation": {
+            "dates":"La fecha es {{ date, short }}",
+            "language": {
+                "enUS": "Ingles",
+                "es": "Español"
+            }
+        }
+    } 
+}
