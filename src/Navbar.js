@@ -49,12 +49,12 @@ function NavBar(){
       return(
         <>
         <nav className={"navbar navbar-sticky"}>
-        <div class="bar">
+        <div className="bar">
           <img src="https://yt3.ggpht.com/bfP5JOmJYINOnJhwTFr1SVj4gHocn8U1TlRLNtdVMVmKB3S06z751pYEePhQQ8j-PDDeFU30tAU=s88-c-k-c0x00ffffff-no-rj" className=""alt="Logo criptoP2P" />
           <div className="input-group">
             <div className="input-group-prepend">
             <div>
-              <img src="https://image.freepik.com/iconos-gratis/logout_318-10026.jpg" className="btn-logout" onClick={logout} width="40" height="40"/></div>
+              <img src="https://image.freepik.com/iconos-gratis/logout_318-10026.jpg" className="btn-logout" onClick={logout} width="40" height="40" alt="Logo logout"/></div>
             </div>
           </div> 
         </div>
