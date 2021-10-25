@@ -3,8 +3,7 @@ import { initReactI18next } from "react-i18next";
 import resources from "./translation.json";
 
 import {
-	format as formatDate,
-	isDate
+	format as formatDate
 } from "date-fns";
 import { es, enUS } from "date-fns/locale";
 
@@ -22,10 +21,12 @@ i18n.use(initReactI18next) // passes i18n down to react-i18next
 			format: (value, format, lng) => {
 				
 					const locale = locales[lng];
-                    console.log(Date.parse(value))
+                    const dateFormat = value.split("/")
+					const date = new Date(dateFormat[2],dateFormat[1]-1,dateFormat[0])
+
 					if (format === "short")
-						return formatDate(value, "PP", { locale });
-					return formatDate(value, format, { locale });
+						return formatDate(date, "P", { locale });
+					return formatDate(date, format, { locale });
 			}
 		}
 	});
