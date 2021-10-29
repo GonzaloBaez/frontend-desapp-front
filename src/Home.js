@@ -46,10 +46,10 @@ function Home(){
         <>
         <NavBar/>
             {
-                showCriptos && criptos.map(cripto => <CriptoQuote symbol={cripto.symbol} price={cripto.price} dollarQuote={dollarQuote.v} date={cripto.date} hour={cripto.hour}/>)
+                showCriptos && criptos.map(cripto => <CriptoQuote symbol={cripto.symbol} price={cripto.price} dollarQuote={dollarQuote.v} date={cripto.date} hour={cripto.hour} key={cripto.symbol}/>)
             }
             {!showCriptos &&
-                        <div class="alert alert-info" role="alert">
+                        <div className="alert alert-info" role="alert">
                             Cargando cotizaciones
                         </div>
             }

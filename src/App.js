@@ -5,7 +5,7 @@ import Register from './Register';
 import Login from './Login';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
 
 class App extends React.Component{

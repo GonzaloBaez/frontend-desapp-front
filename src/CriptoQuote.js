@@ -1,9 +1,12 @@
 import Modal from 'react-bootstrap/Modal'
 import React,{useState} from 'react';
+import { useTranslation } from "react-i18next";
 
 function CriptoQuote({symbol,price,dollarQuote,date,hour}){
     
     const [show, setShow] = useState(false);
+    const { t, i18n } = useTranslation();
+    const currency = (price * (dollarQuote || 185)).toFixed(2)
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -13,9 +16,9 @@ function CriptoQuote({symbol,price,dollarQuote,date,hour}){
             <div class="card w-50">
                 <div class="card-body">
                     <h5 class="card-title">{symbol}</h5>
-                    <p class="card-text">{"Price: " + (price * dollarQuote).toFixed(2) + " ARS"}</p>
-                    <p class="card-text">{"Date: " + date}</p>
-                    <p class="card-text">{"Hour: " + hour}</p>
+                    <p className="card-text">{"Price: " + t('currency',{ currency })}</p>
+                    <p className="card-text">{"Date: " + t('dates',{ date })}</p>
+                    <p className="card-text">{"Hour: " + hour}</p>
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-primary" onClick={handleShow}>Compra</button>
                         <button type="button" class="btn btn-primary">Venta</button>
