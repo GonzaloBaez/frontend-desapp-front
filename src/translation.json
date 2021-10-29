@@ -1,8 +1,8 @@
  {   
     "enUS": {
         "translation": {
-            "dates":"The date is {{ date, short }}"
-            ,
+            "dates":"The date is {{ date, short }}",
+            "currency":"{{ currency, currency}}",
             "language": {
                 "enUS": "English",
                 "es": "Spanish"
@@ -13,6 +13,7 @@
     "es": {
         "translation": {
             "dates":"La fecha es {{ date, short }}",
+            "currency":"{{ currency, currency}}",
             "language": {
                 "enUS": "Ingles",
                 "es": "Español"

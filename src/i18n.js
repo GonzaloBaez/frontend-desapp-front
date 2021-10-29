@@ -19,14 +19,26 @@ i18n.use(initReactI18next) // passes i18n down to react-i18next
 			escapeValue: false,
 
 			format: (value, format, lng) => {
-				
-					const locale = locales[lng];
-                    const dateFormat = value.split("/")
-					const date = new Date(dateFormat[2],dateFormat[1]-1,dateFormat[0])
+					
 
-					if (format === "short")
-						return formatDate(date, "P", { locale });
-					return formatDate(date, format, { locale });
+					if (format === "short"){
+						const locale = locales[lng];
+                    	const dateFormat = value.split("/")
+						const date = new Date(dateFormat[2],dateFormat[1]-1,dateFormat[0])
+
+						return formatDate(date, "P", { locale })
+					}
+					if (format === "currency"){
+
+						let formatLng = "es-AR"
+						let style = {style: 'currency', currency:'ARS'}
+
+						if (lng === "enUS"){
+							formatLng = "en-US"
+						}
+
+						return new Intl.NumberFormat(formatLng,style).format(value);
+					}
 			}
 		}
 	});
