@@ -19,7 +19,7 @@ function Register(){
     const handleRegister = (event) =>{
         event.preventDefault();
         axios
-           .post('http://localhost:8080/register',data)
+           .post('http://localhost:8080/api/users/register',data)
             .then((response => {
                 console.log(response.data)
                 history.push('/')

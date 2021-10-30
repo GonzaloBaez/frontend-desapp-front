@@ -27,6 +27,7 @@ function Login(){
             .post('http://localhost:8080/authenticate',data)
             .then((response) =>{
                 localStorage.setItem("token",response.data.token)
+                localStorage.setItem("usuario",data.username)
                 let token = localStorage.getItem("token")
                 console.log(token)
                 history.push('/home')
