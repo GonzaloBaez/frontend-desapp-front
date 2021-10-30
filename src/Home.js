@@ -45,6 +45,7 @@ function Home(){
     return(
         <>
         <NavBar/>
+        <div className="criptoQuotes">
             {
                 showCriptos && criptos.map(cripto => <CriptoQuote symbol={cripto.symbol} price={cripto.price} dollarQuote={dollarQuote.v} date={cripto.date} hour={cripto.hour} key={cripto.symbol}/>)
             }
@@ -53,7 +54,7 @@ function Home(){
                             Cargando cotizaciones
                         </div>
             }
-            
+        </div>
         </>
     )
 }

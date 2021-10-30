@@ -28,7 +28,7 @@ function Register(){
 
     return(
         <>
-         <div className="register-main-div">
+         <div className="login-main-div">
              <form className="register-form" onSubmit={handleRegister}>
                 <div className="form-group">
                     <input required className="form-control" name= "name" type="text"  value = {data.name} onChange = {handleInputChange} placeholder="Name"/>
