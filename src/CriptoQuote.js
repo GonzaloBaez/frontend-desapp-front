@@ -25,7 +25,8 @@ function CriptoQuote({symbol,price,dollarQuote,date,hour}){
         unitValue: "",
         quote: "",
         totalPrice: "",
-        amount: ""
+        amount: "",
+        type:""
     }
 
     const handleCloseModelAmount = () => {
@@ -52,34 +53,35 @@ function CriptoQuote({symbol,price,dollarQuote,date,hour}){
 
     const handleTransactionCreation = (event)=>{
         event.preventDefault()
-        isInvalidAmount = typeof amount != "number" || amount <= 0
+        isInvalidAmount = amount <= 0
         if (!isInvalidAmount){
         postTransaction();
         }else{
             console.log("logue mensaje")
             setShowMessageInvalidValue(true)
         }
+    }
 
-        const postTransaction = () => {
-            let email = localStorage.getItem("usuario");
-            transaction.user = email;
-            transaction.cryptoName = symbol;
-            transaction.unitValue = price;
-            transaction.quote = currency;
-            transaction.totalPrice = currency * amount;
-            transaction.amount = amount;
+    const postTransaction = () => {
+        let email = localStorage.getItem("usuario");
+        transaction.user = email;
+        transaction.cryptoName = symbol;
+        transaction.unitValue = price;
+        transaction.quote = currency;
+        transaction.totalPrice = currency * amount;
+        transaction.amount = amount;
+        transaction.type = tipoTransaccion
 
-            axios
-                .post('http://localhost:8080/api/transaction/create', transaction, config)
-                .then((response => {
-                    handleCloseModelAmount();
-                    handleShowModelCreationOk();
-                    setAmount(0);
-                })).catch((error) => {
-                    handleCloseModelAmount();
-                    handleShowModelCreationFailed();
-                });
-        }
+        axios
+            .post('http://localhost:8080/api/transaction/create', transaction, config)
+            .then((response => {
+                handleCloseModelAmount();
+                handleShowModelCreationOk();
+                setAmount(0);
+            })).catch((error) => {
+                handleCloseModelAmount();
+                handleShowModelCreationFailed();
+            });
     }
     
     const handleAmountChange = (event) =>{
