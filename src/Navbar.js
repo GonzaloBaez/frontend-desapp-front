@@ -40,6 +40,11 @@ function NavBar(){
       localStorage.removeItem("token");
       history.push("/")
     }
+
+    const handleUsers = (event) =>{
+      event.preventDefault()
+      history.push("/users")
+    }
   
     const goToTimeline = (event) =>{
       event.preventDefault()
@@ -67,6 +72,9 @@ function NavBar(){
                     <option value="es">{t("language.es")}</option>
                     <option value="enUS">{t("language.enUS")}</option>
             </select>
+            <div>
+              <p onClick={handleUsers}>usersDetails</p>
+            </div>
           </div> 
         </div>
         </nav>
