@@ -31,6 +31,11 @@ function NavBar(){
       event.preventDefault()
       history.push("/activities")
     }
+
+    const goToLoggedTransactions = (event) =>{
+      event.preventDefault()
+      history.push("/my-activities")
+    }
       return(
         <>
         <nav className={"navbar navbar-sticky"}>
@@ -47,6 +52,7 @@ function NavBar(){
             </select>
             <button type="button" class="btn btn-dark" onClick={goToHome}>Inicio</button>
             <button type="button" class="btn btn-dark" onClick={goToTransactions}>{"Actividades"}</button>
+            <button type="button" class="btn btn-dark" onClick={goToLoggedTransactions}>{"Mis Actividades"}</button>
           </div> 
         </div>
         </nav>
