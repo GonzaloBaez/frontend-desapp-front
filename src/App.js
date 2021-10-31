@@ -3,6 +3,7 @@ import './App.css';
 import Home from './Home';
 import Register from './Register';
 import Login from './Login';
+import Users from './Users'
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
 import { BrowserRouter, Switch } from 'react-router-dom';
@@ -18,6 +19,7 @@ class App extends React.Component{
         <PublicRoute exact path="/register" component={Register} />
         <PrivateRoute exact path="/home" component={Home}/>
         <PrivateRoute exact path="/activities" component={Activities}/>
+        <PrivateRoute exact path="/users" component={Users}/>
       </Switch>
     </BrowserRouter>
     );

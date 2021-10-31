@@ -18,6 +18,16 @@ function NavBar(){
       history.push("/")
     }
 
+    const handleUsers = (event) =>{
+      event.preventDefault()
+      history.push("/users")
+    }
+  
+    const goToTimeline = (event) =>{
+      event.preventDefault()
+      history.push("/home")
+    }
+
     const changeLanguage = (lng) => {
       i18n.changeLanguage(lng);
     };
@@ -47,6 +57,7 @@ function NavBar(){
             </select>
             <button type="button" class="btn btn-dark" onClick={goToHome}>Inicio</button>
             <button type="button" class="btn btn-dark" onClick={goToTransactions}>{"Actividades"}</button>
+            <button type="button" class="btn btn-dark" onClick={handleUsers}>{"Usuarios"}</button>
           </div> 
         </div>
         </nav>

@@ -13,39 +13,15 @@ function Activity({id,user, hour ,
         
         let loggedUser = localStorage.getItem("usuario");
 
-        const updatedTransaction = {
-            id:"",
-            user: "",
-            cryptoName: "",
-            unitValue: "",
-            quote: "",
-            totalPrice: "",
-            amount: "",
-            type:"",
-            state:"En progreso",
-            reputation:"",
-            cvu:"",
-            wallet:""
-        }
-
         const updateTransactionToInProgress =(event)=>{
             event.preventDefault()
-            updatedTransaction.id=id
-            updatedTransaction.user = user;
-            updatedTransaction.cryptoName = cryptoName;
-            updatedTransaction.unitValue = unitValue;
-            updatedTransaction.quote = quote;
-            updatedTransaction.totalPrice = totalPrice;
-            updatedTransaction.amount = amount;
-            updatedTransaction.type = type;
-            updatedTransaction.cvu = cvu;
-            updatedTransaction.wallet = wallet
-
+            
             axios
-                .put('http://localhost:8080/api/transaction/activity-'+id+'/update',null,config)
+                .put('http://localhost:8080/api/transaction/activity-'+id+'-'+loggedUser+ '/update',null,config)
                 .then((response => {
-                    console.log(updatedTransaction)
+                    console.log(response)
                 })).catch((error) => {
+                    console.log('usuario', loggedUser)
                     console.log(error)
                 });
         }
