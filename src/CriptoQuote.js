@@ -26,7 +26,9 @@ function CriptoQuote({symbol,price,dollarQuote,date,hour}){
         quote: "",
         totalPrice: "",
         amount: "",
-        type:""
+        type:"",
+        state:"Creada",
+        reputation:""
     }
 
     const handleCloseModelAmount = () => {

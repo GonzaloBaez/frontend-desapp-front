@@ -8,50 +8,28 @@ function NavBar(){
 
     let history = useHistory();
     const { t, i18n } = useTranslation();
-    const [searchData,setSearchData] = useState('');
-    const handleInputChange = (event) =>{
-      event.preventDefault();
-      setSearchData(event.target.value);
-     
-    }
-
-    const handleSearchClick = (event) =>{
-      history.push("/search?q=" + searchData.toString().replace('#', "%23"))
-    }
-
-    const [user,setUser] = useState({id: "",image: ""});
 
     useEffect(()=>{
-      getUser()
     },[])
 
-    const getUser = () =>{
-      let token = localStorage.getItem("token")
-      
-      axios.get("http://localhost:7000/user",{headers:{'Authorization': token}})
-      .then((response)=>{
-        let responsePosts = JSON.parse(JSON.stringify(response.data))
-        setUser(responsePosts)
-      })
-      .catch((error)=> console.log("Error: ", error));
-    }
     const logout = (event) =>{
       event.preventDefault()
       localStorage.removeItem("token");
       history.push("/")
-    }
-  
-    const goToTimeline = (event) =>{
-      event.preventDefault()
-      history.push("/home")
     }
 
     const changeLanguage = (lng) => {
       i18n.changeLanguage(lng);
     };
 
-    const handleClick = (event) => {
-      history.push("/profile/" + user.id);
+    const goToHome = (event) =>{
+      event.preventDefault()
+      history.push("/home")
+    }
+
+    const goToTransactions = (event) =>{
+      event.preventDefault()
+      history.push("/activities")
     }
       return(
         <>
@@ -67,6 +45,8 @@ function NavBar(){
                     <option value="es">{t("language.es")}</option>
                     <option value="enUS">{t("language.enUS")}</option>
             </select>
+            <button type="button" class="btn btn-dark" onClick={goToHome}>Inicio</button>
+            <button type="button" class="btn btn-dark" onClick={goToTransactions}>{"Actividades"}</button>
           </div> 
         </div>
         </nav>

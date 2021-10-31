@@ -6,6 +6,7 @@ import Login from './Login';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
 import { BrowserRouter, Switch } from 'react-router-dom';
+import Activities from './Activities';
 
 
 class App extends React.Component{
@@ -16,6 +17,7 @@ class App extends React.Component{
         <PublicRoute exact path="/" component={Login} />
         <PublicRoute exact path="/register" component={Register} />
         <PrivateRoute exact path="/home" component={Home}/>
+        <PrivateRoute exact path="/activities" component={Activities}/>
       </Switch>
     </BrowserRouter>
     );
