@@ -1,49 +1,52 @@
-import React,{useState} from 'react';
-import "./styles/CriptoQuote.css"
+import React,{useEffect, useState} from 'react';
 import axios from 'axios';
+import NavBar from './Navbar';
+import LoggedActivity from './LoggedActivity';
+function LoggedActivities(){
 
-function LoggedActivity({id,user, hour ,
-    cryptoName, unitValue, quote ,totalPrice, 
-    amount, type, cvu, wallet, reputation, state, counterPart}){
+    const [showActivities,setShowActivities] = useState(false)
+    const [activities,setActivities] = useState([])
+    const config = {
+        headers:{'Authorization': 'Bearer '+localStorage.getItem("token"),
+                'Access-Control-Allow-Origin': 'http://localhost:3000'}
+    };
+    let loggedUser = localStorage.getItem("usuario");
 
-        const config = {
-            headers:{'Authorization': 'Bearer '+localStorage.getItem("token"),
-                    'Access-Control-Allow-Origin': 'http://localhost:3000'}
-        };
-        
-        let loggedUser = localStorage.getItem("usuario");
-        const updateTransactionToInProgress =(event)=>{
-            event.preventDefault()
-            axios
-                .put('http://localhost:8080/api/transaction/activity-'+id+'/update',null,config)
-                .then((response => {
-                    console.log(updatedTransaction)
-                })).catch((error) => {
-                    console.log(error)
-                });
-        }
+    useEffect(()=>{
+        getTransactions()
+      },[])
 
+    const getTransactions = () =>{
+        axios.get("http://localhost:8080/api/transaction/activities/"+loggedUser,config)
+        .then((response) => {
+            let responseTransactions = JSON.parse(JSON.stringify(response.data))
+            setActivities(responseTransactions)
+            setShowActivities(true)
+        })
+    }
+    
     return(
         <>
-            <div class="card w-50 cardCriptoQuote">
-                <div class="card-body">
-                    <h5 class="card-title">{"Transaccion de " + type}</h5>
-                    <p className="card-text">{"Cripto: " + cryptoName}</p>
-                    <p className="card-text">{"Usuario: " + user}</p>
-                    <p className="card-text">{"Hora: "+ hour}</p>
-                    <p className="card-text">{"Valor unitario: USD "+ unitValue}</p>
-                    <p className="card-text">{"Cotizacion: ARS "+ quote}</p>
-                    <p className="card-text">{"Precio total: ARS "+ totalPrice}</p>
-                    <p className="card-text">{"Cantidad de Cripto: "+ amount}</p>
-                    <p className="card-text">{"Reputación: "+ reputation}</p>
-                    
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-primary" name="Compra" onClick={updateTransactionToInProgress}>{"Comenzar transacción"}</button>
-                    </div>
-                </div>  
-            </div>
+        <NavBar/>
+        <div className="transactions">
+            {
+                activities.length
+                !=0 && showActivities && activities.map(activity => <LoggedActivity id={activity.id} user={activity.user} hour={activity.hour} 
+                    cryptoName={activity.cryptoName} unitValue={activity.unitValue} quote={activity.quote} totalPrice={activity.totalPrice} 
+                    amount={activity.amount} type={activity.type} cvu={activity.cvu} wallet={activity.wallet} reputation={activity.reputation} state={activity.state} counterPart={activity.counterPart}/>)
+            }
+            {!showActivities &&
+                        <div className="alert alert-info" role="alert">
+                            {"Cargando transacciónes"}
+                        </div>
+            }
+            {showActivities && activities.length==0 &&
+                        <div className="alert alert-success" role="alert">
+                            {"No existen transacciones a mostrar"}
+                        </div>
+            }
+        </div>
         </>
     )
 }
-
-export default LoggedActivity
+export default LoggedActivities
