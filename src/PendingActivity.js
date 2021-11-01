@@ -10,6 +10,20 @@ function PendingActivity({id,user, hour ,
             headers:{'Authorization': 'Bearer '+localStorage.getItem("token"),
                     'Access-Control-Allow-Origin': 'http://localhost:3000'}
         };
+
+        const handleAction = (event) =>{
+            event.preventDefault()
+            axios
+                .put('http://localhost:8080/api/transaction/close/'+id+'/'+counterPart,null,config)
+                .then((response) =>{
+                    console.log(response.data)
+                })
+                .catch((error) =>{
+                    console.log(error)
+                })
+
+
+        }
         
 
     return(
@@ -25,8 +39,8 @@ function PendingActivity({id,user, hour ,
                     <p className="card-text">{"Cotizacion: ARS "+ quote}</p>
                     <p className="card-text">{"Precio total: ARS "+ totalPrice}</p>
                     <p className="card-text">{"Cantidad de Cripto: "+ amount}</p>
-                    <p className="card-text">{type == 'Compra'? ("Billetera: "+ wallet):("CBU/CVU: "+cvu)}</p>
-                    
+                    <p className="card-text">{"Dirección de envio: "+ (type == 'Compra'? ("Billetera " +wallet):("CBU/CVU " +cvu))}</p>
+                    <button onClick={handleAction}>{type == 'Compra'? ("Confirmar recepción"):("Realice la transferencia")}</button>
                     
                 </div>  
             </div>
