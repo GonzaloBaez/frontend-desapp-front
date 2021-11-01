@@ -9,6 +9,7 @@ import PrivateRoute from './PrivateRoute';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import Activities from './Activities';
 import LoggedActivities from './LoggedActivities';
+import PendingActivities from './PendingActivities';
 
 
 class App extends React.Component{
@@ -21,6 +22,7 @@ class App extends React.Component{
         <PrivateRoute exact path="/home" component={Home}/>
         <PrivateRoute exact path="/activities" component={Activities}/>
         <PrivateRoute exact path="/my-activities" component={LoggedActivities}/>
+        <PrivateRoute exact path="/pending-activities" component = {PendingActivities}/>
         <PrivateRoute exact path="/users" component={Users}/>
       </Switch>
     </BrowserRouter>

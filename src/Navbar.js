@@ -22,11 +22,6 @@ function NavBar(){
       event.preventDefault()
       history.push("/users")
     }
-  
-    const goToTimeline = (event) =>{
-      event.preventDefault()
-      history.push("/home")
-    }
 
     const changeLanguage = (lng) => {
       i18n.changeLanguage(lng);
@@ -46,6 +41,11 @@ function NavBar(){
       event.preventDefault()
       history.push("/my-activities")
     }
+
+    const goToPendingActivities = (event) =>{
+      event.preventDefault()
+      history.push("/pending-activities")
+    }
       return(
         <>
         <nav className={"navbar navbar-sticky"}>
@@ -63,6 +63,7 @@ function NavBar(){
             <button type="button" class="btn btn-dark" onClick={goToHome}>Inicio</button>
             <button type="button" class="btn btn-dark" onClick={goToTransactions}>{"Actividades"}</button>
             <button type="button" class="btn btn-dark" onClick={goToLoggedTransactions}>{"Mis Actividades"}</button>
+            <button type="button" class="btn btn-dark" onClick={goToPendingActivities}>{"Actividades pendientes"}</button>
             <button type="button" class="btn btn-dark" onClick={handleUsers}>{"Usuarios"}</button>
           </div> 
         </div>

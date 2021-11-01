@@ -1,8 +1,8 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios';
 import NavBar from './Navbar';
-import LoggedActivity from './LoggedActivity';
-function LoggedActivities(){
+import PendingActivity from './PendingActivity';
+function PendingActivities(){
 
     const [showActivities,setShowActivities] = useState(false)
     const [activities,setActivities] = useState([])
@@ -17,7 +17,7 @@ function LoggedActivities(){
       },[])
 
     const getTransactions = () =>{
-        axios.get("http://localhost:8080/api/transaction/activities/"+loggedUser,config)
+        axios.get("http://localhost:8080/api/transaction/pending-activities/"+loggedUser,config)
         .then((response) => {
             let responseTransactions = JSON.parse(JSON.stringify(response.data))
             setActivities(responseTransactions)
@@ -31,22 +31,22 @@ function LoggedActivities(){
         <div className="transactions">
             {
                 activities.length
-                !=0 && showActivities && activities.map(activity => <LoggedActivity id={activity.id} user={activity.user} hour={activity.hour} 
+                !=0 && showActivities && activities.map(activity => <PendingActivity id={activity.id} user={activity.user} hour={activity.hour} 
                     cryptoName={activity.cryptoName} unitValue={activity.unitValue} quote={activity.quote} totalPrice={activity.totalPrice} 
-                    amount={activity.amount} type={activity.type} cvu={activity.cvu} wallet={activity.wallet} reputation={activity.reputation} state={activity.state} counterPart={activity.counterPartUser}/>)
+                    amount={activity.amount} type={activity.type} cvu={activity.cvu} wallet={activity.wallet} reputation={activity.reputation} state={activity.state} counterPart={activity.counterPart}/>)
             }
             {!showActivities &&
                         <div className="alert alert-info" role="alert">
-                            {"Cargando actividades"}
+                            {"Cargando actividades pendientes"}
                         </div>
             }
             {showActivities && activities.length==0 &&
                         <div className="alert alert-success" role="alert">
-                            {"No existen actividades a mostrar"}
+                            {"No tienes actividades pendientes"}
                         </div>
             }
         </div>
         </>
     )
 }
-export default LoggedActivities
+export default PendingActivities

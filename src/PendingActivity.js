@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import "./styles/CriptoQuote.css"
 import axios from 'axios';
 
-function LoggedActivity({id,user, hour ,
+function PendingActivity({id,user, hour ,
     cryptoName, unitValue, quote ,totalPrice, 
     amount, type, cvu, wallet, reputation, state,counterPart}){
 
@@ -19,13 +19,14 @@ function LoggedActivity({id,user, hour ,
                     <h5 class="card-title">{"Transaccion de " + type}</h5>
                     <p className="card-text">{"Cripto: " + cryptoName}</p>
                     <p className="card-text">{"Usuario: " + user}</p>
-                    <p className="card-text">{"Contraparte: " + (counterPart != null? counterPart: "Sin contraparte")}</p>
+                    <p className="card-text">{"Reputación: "+ reputation}</p>
                     <p className="card-text">{"Hora: "+ hour}</p>
                     <p className="card-text">{"Valor unitario: USD "+ unitValue}</p>
                     <p className="card-text">{"Cotizacion: ARS "+ quote}</p>
                     <p className="card-text">{"Precio total: ARS "+ totalPrice}</p>
                     <p className="card-text">{"Cantidad de Cripto: "+ amount}</p>
-                    <p className="card-text">{"Reputación: "+ reputation}</p>
+                    <p className="card-text">{type == 'Compra'? ("Billetera: "+ wallet):("CBU/CVU: "+cvu)}</p>
+                    
                     
                 </div>  
             </div>
@@ -33,4 +34,4 @@ function LoggedActivity({id,user, hour ,
     )
 }
 
-export default LoggedActivity
+export default PendingActivity

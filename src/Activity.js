@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import "./styles/CriptoQuote.css"
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 function Activity({id,user, hour ,
     cryptoName, unitValue, quote ,totalPrice, 
@@ -12,6 +13,7 @@ function Activity({id,user, hour ,
         };
         
         let loggedUser = localStorage.getItem("usuario");
+        let history = useHistory()
 
         const updateTransactionToInProgress =(event)=>{
             event.preventDefault()
@@ -19,12 +21,15 @@ function Activity({id,user, hour ,
             axios
                 .put('http://localhost:8080/api/transaction/activity-'+id+'-'+loggedUser+ '/update',null,config)
                 .then((response => {
-                    console.log(response)
+                goToPendingActivities()
                 })).catch((error) => {
-                    console.log('usuario', loggedUser)
-                    console.log(error)
+                   
                 });
         }
+
+        const goToPendingActivities = (event) =>{
+            history.push("/pending-activities")
+          }
 
     return(
         <>
