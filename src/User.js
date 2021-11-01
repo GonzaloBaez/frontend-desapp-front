@@ -16,8 +16,7 @@ function User({name,surname,email,address,cvu,wallet,points,operations,reputatio
                         aria-expanded={open}>
                            {'User: ' + email} 
                     </Dropdown>
-                </div>    
-                <Collapse in={open}>
+                    <Collapse in={open}>
                     <div className="user-information">
                         <p className="card-text-user">{"Name: " + name}</p>
                         <p className="card-text-user">{"Surname: " + surname}</p>
@@ -29,6 +28,8 @@ function User({name,surname,email,address,cvu,wallet,points,operations,reputatio
                         <p className="card-text-user">{"Reputation: " + reputation}</p> 
                     </div>
                 </Collapse>
+                </div>    
+                
             </div>    
         </>
     )

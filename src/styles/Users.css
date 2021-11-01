@@ -11,26 +11,28 @@
 
 
 
-.usersDetails{
+.users-list{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-}
-
-.user-information{
-    height: 100%;
-    background-color: lightblue;
-    margin: 2%;
+    width: 500px;
 }
 
 .user-information{
     display: flex;
     flex-direction: column;
+    height: 100%;
+    background-color: rgb(201, 222, 230);
+    padding-bottom: 1vh;
+    padding-top: 0.5vh;
+    padding-left: 0.5vw;
 }
 
 .btn.btn-info.dropdown-toggle{
     color: #000;
-    background-color: white;
-    border-color: #0dcaf0;
+    background-color: rgb(243, 243, 243);
+    border-color: #004452;
+    width: 400px;
+    margin-top: 1vh;
 }
