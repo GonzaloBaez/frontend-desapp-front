@@ -57,8 +57,8 @@ function PendingActivity({id,user, hour ,
                     <p className="card-text">{"Dirección de envio: "+ (type == 'Compra'? ("Billetera " +wallet):("CBU/CVU " +cvu))}</p>
                     {(state != 'Cerrada') && 
                         <div>
-                            <button className="confirm-button" onClick={handleAction}>{type == 'Compra' ? ("Confirmar recepción"):("Realice la transferencia")}</button>
-                            <button className="cancel-button" onClick={handleCancel}>Cancelar transacción</button>
+                            <button className="btn btn-success" onClick={handleAction}>{type == 'Compra' ? ("Confirmar recepción"):("Realice la transferencia")}</button>
+                            <button className="btn btn-warning" onClick={handleCancel}>Cancelar transacción</button>
                         </div>    
                     }
 
