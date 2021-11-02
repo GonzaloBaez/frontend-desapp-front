@@ -26,7 +26,7 @@ function LoggedActivity({id,user, hour ,
                     <p className="card-text">{"Precio total: ARS "+ totalPrice}</p>
                     <p className="card-text">{"Cantidad de Cripto: "+ amount}</p>
                     <p className="card-text">{"Reputación: "+ reputation}</p>
-                    
+                    <p className="card-text">{"Estado: "+ state}</p>
                 </div>  
             </div>
         </>

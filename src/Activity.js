@@ -21,6 +21,7 @@ function Activity({id,user, hour ,
             axios
                 .put('http://localhost:8080/api/transaction/activity-'+id+'-'+loggedUser+ '/update',null,config)
                 .then((response => {
+                    console.log(response.data)
                 goToPendingActivities()
                 })).catch((error) => {
                    

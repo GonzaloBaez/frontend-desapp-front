@@ -20,6 +20,7 @@ function Activities(){
         .then((response) => {
             let responseTransactions = JSON.parse(JSON.stringify(response.data))
             setActivities(responseTransactions)
+            console.log('activity: ',responseTransactions)
             setShowActivities(true)
         })
     }

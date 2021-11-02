@@ -33,7 +33,7 @@ function PendingActivities(){
                 activities.length
                 !=0 && showActivities && activities.map(activity => <PendingActivity id={activity.id} user={activity.user} hour={activity.hour} 
                     cryptoName={activity.cryptoName} unitValue={activity.unitValue} quote={activity.quote} totalPrice={activity.totalPrice} 
-                    amount={activity.amount} type={activity.type} cvu={activity.cvu} wallet={activity.wallet} reputation={activity.reputation} state={activity.state} counterPart={activity.counterPart}/>)
+                    amount={activity.amount} type={activity.type} cvu={activity.cvu} wallet={activity.wallet} reputation={activity.reputation} state={activity.state} counterPart={loggedUser}/>)
             }
             {!showActivities &&
                         <div className="alert alert-info" role="alert">

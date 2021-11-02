@@ -13,3 +13,12 @@
 .card-text{
     margin-bottom: 0.5rem;
 }
+
+.confirm-button{
+    background-color: green;
+}
+
+.cancel-button{
+    background-color: red;
+    margin: 20px;
+}
