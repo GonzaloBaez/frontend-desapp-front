@@ -15,7 +15,6 @@ function Home(){
 
     useEffect(()=>{
         getCriptos()
-        getCriptosQuoteInARS()
       },[])
 
 
@@ -35,7 +34,7 @@ function Home(){
       const getCriptos = () =>{
         axios.get("http://localhost:8080/api/cryptos/quotes",config)
         .then((response) => {
-            
+            getCriptosQuoteInARS()
             let responseCripto = JSON.parse(JSON.stringify(response.data))
             setCriptos(responseCripto)
             setShowCriptos(true)
