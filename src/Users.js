@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios';
-import NavBar from './Navbar';
+import { useTranslation } from "react-i18next";
 import User from './User'
 import './styles/Users.css'
 
@@ -11,7 +11,8 @@ function Users(){
     useEffect(()=>{
         getUsers()
       },[])
-
+    
+    const { t, i18n } = useTranslation();
     const getUsers = () =>{
         axios.get('http://localhost:8080/api/users')
          .then((response) => {
@@ -24,7 +25,6 @@ function Users(){
 
     return(
         <>
-            <NavBar/>
             <div className="usersDetails">
                 {
                     showUsers && users.map(user => <User name={user.name} surname={user.surname} email={user.email} address={user.address} cvu={user.cvu}
@@ -32,7 +32,7 @@ function Users(){
                 }
                 {!showUsers &&
                         <div className="alert alert-info" role="alert">
-                            Cargando usuarios
+                            {t("cargandoUsuarios")}
                         </div>
                 }
             </div>

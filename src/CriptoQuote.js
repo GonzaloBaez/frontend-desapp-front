@@ -105,8 +105,8 @@ function CriptoQuote({symbol,price,dollarQuote,date,hour}){
                     <p className="card-text">{t("date")+": " + t('dates',{ date })}</p>
                     <p className="card-text">{t("hour")+": " + hour}</p>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-primary" onClick={handleShowModelAmount} name="Compra">Compra</button>
-                        <button type="button" class="btn btn-primary" onClick={handleShowModelAmount} name="Venta">Venta</button>
+                        <button type="button" class="btn btn-primary" onClick={handleShowModelAmount} name="Compra">{t("compra")}</button>
+                        <button type="button" class="btn btn-primary" onClick={handleShowModelAmount} name="Venta">{t("venta")}</button>
                     </div>
                     <Modal
                     show={showModelAmount}
@@ -115,18 +115,18 @@ function CriptoQuote({symbol,price,dollarQuote,date,hour}){
                     keyboard={false}
                     >
                     <Modal.Header closeButton>
-                        <Modal.Title>{"Creando transacción de " + tipoTransaccion} </Modal.Title>
+                        <Modal.Title>{t("creandoTransaccionDe" + tipoTransaccion)} </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        {"Ingrese una cantidad a operar de " + symbol}
+                        {t("ingreseUnaCantidadAOperar") + symbol}
                         <input required className="form-control" required name= "username" type="number" value={amount} onChange={handleAmountChange} placeholder={"Cantidad de " + symbol}/>
                     </Modal.Body>
                     <Modal.Footer>
-                        <button variant="secondary" type="button" class="btn btn-warning" onClick={handleCloseModelAmount}>Cancelar</button>
-                        <button variant="primary" type="button" class="btn btn-success" onClick={handleTransactionCreation}>Crear transacción</button>
+                        <button variant="secondary" type="button" class="btn btn-warning" onClick={handleCloseModelAmount}>{t("cancelar")}</button>
+                        <button variant="primary" type="button" class="btn btn-success" onClick={handleTransactionCreation}>{t("crearTransaccion")}</button>
                         {showMessageInvalidValue &&
                         <div class="alert alert-warning invalidAmount" role="alert">
-                            Cantidad ingresada incorrecta
+                            {t("cantidadIngresadaIncorrecta")}
                         </div>
                     }
                     </Modal.Footer>
@@ -139,10 +139,10 @@ function CriptoQuote({symbol,price,dollarQuote,date,hour}){
                     keyboard={false}
                     >
                     <Modal.Header closeButton>
-                        <Modal.Title>{"La transaccion fue creada correctamente"} </Modal.Title>
+                        <Modal.Title>{t("transaccionCreadaCorrectamente")} </Modal.Title>
                     </Modal.Header>
                     <Modal.Footer>
-                        <button variant="secondary" type="button" class="btn btn-success" onClick={handleCloseModelCreationOk}>Aceptar</button>
+                        <button variant="secondary" type="button" class="btn btn-success" onClick={handleCloseModelCreationOk}>{t("aceptar")}</button>
                     </Modal.Footer>
                     </Modal>
 
@@ -153,10 +153,10 @@ function CriptoQuote({symbol,price,dollarQuote,date,hour}){
                     keyboard={false}
                     >
                     <Modal.Header closeButton>
-                        <Modal.Title>{"La transaccion no fue creada debido a un error"} </Modal.Title>
+                        <Modal.Title>{t("transaccionNoFueCreadaPorError")} </Modal.Title>
                     </Modal.Header>
                     <Modal.Footer>
-                        <button variant="secondary" type="button" class="btn btn-warning" onClick={handleCloseModelCreationFailed}>Aceptar</button>
+                        <button variant="secondary" type="button" class="btn btn-warning" onClick={handleCloseModelCreationFailed}>{t("aceptar")}</button>
                     </Modal.Footer>
                     </Modal>
                 </div>  

@@ -60,11 +60,11 @@ function NavBar(){
                     <option value="es">{t("language.es")}</option>
                     <option value="enUS">{t("language.enUS")}</option>
             </select>
-            <button type="button" class="btn btn-dark" onClick={goToHome}>Inicio</button>
-            <button type="button" class="btn btn-dark" onClick={goToTransactions}>{"Actividades"}</button>
-            <button type="button" class="btn btn-dark" onClick={goToLoggedTransactions}>{"Mis Actividades"}</button>
-            <button type="button" class="btn btn-dark" onClick={goToPendingActivities}>{"Actividades pendientes"}</button>
-            <button type="button" class="btn btn-dark" onClick={handleUsers}>{"Usuarios"}</button>
+            <button type="button" class="btn btn-dark" onClick={goToHome}>{t("inicio")}</button>
+            <button type="button" class="btn btn-dark" onClick={goToTransactions}>{t("actividades")}</button>
+            <button type="button" class="btn btn-dark" onClick={goToLoggedTransactions}>{t("misActividades")}</button>
+            <button type="button" class="btn btn-dark" onClick={goToPendingActivities}>{t("actividadesPendientes")}</button>
+            <button type="button" class="btn btn-dark" onClick={handleUsers}>{t("usuarios")}</button>
           </div> 
         </div>
         </nav>

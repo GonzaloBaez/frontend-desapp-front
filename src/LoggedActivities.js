@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios';
-import NavBar from './Navbar';
+import { useTranslation } from "react-i18next";
 import LoggedActivity from './LoggedActivity';
 function LoggedActivities(){
 
@@ -11,7 +11,7 @@ function LoggedActivities(){
                 'Access-Control-Allow-Origin': 'http://localhost:3000'}
     };
     let loggedUser = localStorage.getItem("usuario");
-
+    const { t, i18n } = useTranslation();
     useEffect(()=>{
         getTransactions()
       },[])
@@ -27,7 +27,6 @@ function LoggedActivities(){
     
     return(
         <>
-        <NavBar/>
         <div className="transactions">
             {
                 activities.length
@@ -37,12 +36,12 @@ function LoggedActivities(){
             }
             {!showActivities &&
                         <div className="alert alert-info" role="alert">
-                            {"Cargando actividades"}
+                            {t("cargandoActividades")}
                         </div>
             }
             {showActivities && activities.length==0 &&
                         <div className="alert alert-success" role="alert">
-                            {"No existen actividades a mostrar"}
+                            {t("noExistenActividades")}
                         </div>
             }
         </div>

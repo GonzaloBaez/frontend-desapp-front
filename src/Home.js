@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react';
 import CriptoQuote from './CriptoQuote';
 import axios from 'axios';
 import './styles/Home.css'
-import NavBar from './Navbar';
+import { useTranslation } from "react-i18next";
 function Home(){
 
     const [criptos,setCriptos] = useState({});
@@ -12,6 +12,7 @@ function Home(){
         headers:{'Authorization': 'Bearer '+localStorage.getItem("token"),
                 'Access-Control-Allow-Origin': 'http://localhost:3000'}
     };
+    const { t, i18n } = useTranslation();
 
     useEffect(()=>{
         getCriptos()
@@ -43,14 +44,13 @@ function Home(){
     
     return(
         <>
-        <NavBar/>
         <div className="criptoQuotes">
             {
                 showCriptos && criptos.map(cripto => <CriptoQuote symbol={cripto.symbol} price={cripto.price} dollarQuote={dollarQuote.v} date={cripto.date} hour={cripto.hour} key={cripto.symbol}/>)
             }
             {!showCriptos &&
                         <div className="alert alert-info" role="alert">
-                            Cargando cotizaciones
+                            {t("cargandoCotizaciones")}
                         </div>
             }
         </div>

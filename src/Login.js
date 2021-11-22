@@ -2,6 +2,7 @@ import { useHistory } from "react-router-dom";
 import React,{useState} from 'react';
 import axios from 'axios';
 import './styles/Login.css'
+import { useTranslation } from "react-i18next";
 
 function Login(){
     let history = useHistory()
@@ -39,6 +40,7 @@ function Login(){
         event.preventDefault()
         history.push('/register')
     }
+    const { t, i18n } = useTranslation();
 
     return(
         <>
@@ -48,17 +50,17 @@ function Login(){
                         <input required className="form-control" name= "username" type="text"  value = {data.username} onChange = {handleInputChange} placeholder="Email"/>
                     </div>
                     <div className="form-group">
-                        <input required className="form-control" name= "password" type="password"  value = {data.password} onChange = {handleInputChange} placeholder="Password"/>
+                        <input required className="form-control" name= "password" type="password"  value = {data.password} onChange = {handleInputChange} placeholder={t("contraseña")}/>
                     </div>
                     <div className="form-group">  
-                        <button required type="submit" className="btn btn-primary"> Login </button>
+                        <button required type="submit" className="btn btn-primary"> {t("ingresar")} </button>
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-secondary" onClick={handleRegister}> Register</button>
+                        <button className="btn btn-secondary" onClick={handleRegister}> {t("registrar")}</button>
                     </div>
                     {isInvalidLogin &&
                         <div class="alert alert-warning" role="alert">
-                            Correo o contraseña invalidos
+                            {t("correoOContraseñaInvalidos")}
                         </div>
                     }
                 </form>

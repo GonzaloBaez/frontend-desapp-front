@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios';
-import NavBar from './Navbar';
+import { useTranslation } from "react-i18next";
 import PendingActivity from './PendingActivity';
 function PendingActivities(){
 
@@ -15,7 +15,7 @@ function PendingActivities(){
     useEffect(()=>{
         getTransactions()
       },[])
-
+    const { t, i18n } = useTranslation();
     const getTransactions = () =>{
         axios.get("http://localhost:8080/api/transaction/pending-activities/"+loggedUser,config)
         .then((response) => {
@@ -27,7 +27,6 @@ function PendingActivities(){
     
     return(
         <>
-        <NavBar/>
         <div className="transactions">
             {
                 activities.length
@@ -37,12 +36,12 @@ function PendingActivities(){
             }
             {!showActivities &&
                         <div className="alert alert-info" role="alert">
-                            {"Cargando actividades pendientes"}
+                            {t("cargandoActividadesPendientes")}
                         </div>
             }
             {showActivities && activities.length==0 &&
                         <div className="alert alert-success" role="alert">
-                            {"No tienes actividades pendientes"}
+                            {t("noTienesActividadesPendientes")}
                         </div>
             }
         </div>

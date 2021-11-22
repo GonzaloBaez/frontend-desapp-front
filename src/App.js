@@ -10,22 +10,26 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 import Activities from './Activities';
 import LoggedActivities from './LoggedActivities';
 import PendingActivities from './PendingActivities';
-
+import NavBar from './Navbar.js'
 
 class App extends React.Component{
   render(){
     return(
-      <BrowserRouter>
-      <Switch>
-        <PublicRoute exact path="/" component={Login} />
-        <PublicRoute exact path="/register" component={Register} />
-        <PrivateRoute exact path="/home" component={Home}/>
-        <PrivateRoute exact path="/activities" component={Activities}/>
-        <PrivateRoute exact path="/my-activities" component={LoggedActivities}/>
-        <PrivateRoute exact path="/pending-activities" component = {PendingActivities}/>
-        <PrivateRoute exact path="/users" component={Users}/>
-      </Switch>
-    </BrowserRouter>
+      <>
+      
+        <BrowserRouter>
+          <NavBar/>
+          <Switch>
+            <PublicRoute exact path="/" component={Login} />
+            <PublicRoute exact path="/register" component={Register} />
+            <PrivateRoute exact path="/home" component={Home}/>
+            <PrivateRoute exact path="/activities" component={Activities}/>
+            <PrivateRoute exact path="/my-activities" component={LoggedActivities}/>
+            <PrivateRoute exact path="/pending-activities" component = {PendingActivities}/>
+            <PrivateRoute exact path="/users" component={Users}/>
+          </Switch>
+      </BrowserRouter>
+    </>
     );
   }
 }
