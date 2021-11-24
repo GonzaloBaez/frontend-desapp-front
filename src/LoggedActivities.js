@@ -27,7 +27,7 @@ function LoggedActivities(){
     
     return(
         <>
-        <div className="transactions">
+        <div className="personal-transactions">
             {
                 activities.length
                 !=0 && showActivities && activities.map(activity => <LoggedActivity id={activity.id} user={activity.user} hour={activity.hour} 

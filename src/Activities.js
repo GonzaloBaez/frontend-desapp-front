@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react';
 import axios from 'axios';
 import Activity from './Activity';
 import { useTranslation } from "react-i18next";
+import '../src/styles/Activities.css'
 
 function Activities(){
 
@@ -29,7 +30,7 @@ function Activities(){
     
     return(
         <>
-            <div className="transactions">
+            <div className="activities">
                 {
                     activities.length
                     !=0 && showActivities && activities.map(activity => <Activity id={activity.id} user={activity.user} hour={activity.hour} 

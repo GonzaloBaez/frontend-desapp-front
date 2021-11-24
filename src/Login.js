@@ -1,8 +1,9 @@
 import { useHistory } from "react-router-dom";
 import React,{useState} from 'react';
 import axios from 'axios';
-import './styles/Login.css'
+import styles from './styles/Login.css'
 import { useTranslation } from "react-i18next";
+import useMediaQuery from "./useMediaQuery";
 
 function Login(){
     let history = useHistory()
@@ -11,6 +12,12 @@ function Login(){
         username: '',
         password: ''
     })
+
+    const isMobile = useMediaQuery(768);
+    const isTablet = useMediaQuery(1223);
+    const isDekstop = useMediaQuery(1330);
+
+    let dispositive = isMobile ? "mobile" : isTablet ? "tablet" : "desktop"
 
     const [isInvalidLogin,setIsInvalidLogin] = useState(false)
 
@@ -44,8 +51,8 @@ function Login(){
 
     return(
         <>
-            <div className="login-main-div">
-                <form className="login-form" onSubmit={handleLogin}>
+            <div className={dispositive}>
+                <form className={"login-form-" + dispositive} onSubmit={handleLogin}>
                     <div className="form-group">
                         <input required className="form-control" name= "username" type="text"  value = {data.username} onChange = {handleInputChange} placeholder="Email"/>
                     </div>
