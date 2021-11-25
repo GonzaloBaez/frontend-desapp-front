@@ -29,7 +29,7 @@ function PendingActivities(){
     return(
         <>
         <NavBar/>
-        <div className="transactions">
+        <div className="pending-activities">
             {
                 activities.length
                 !=0 && showActivities && activities.map(activity => <PendingActivity id={activity.id} user={activity.user} hour={activity.hour} 

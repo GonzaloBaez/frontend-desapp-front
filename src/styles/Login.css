@@ -1,10 +1,12 @@
-.login-main-div{
+.desktop{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
     max-width: 500px;
     margin: 2rem;
+    margin-left: 33vw;
+    margin-top: 10vh;
 }
 
 .btn-primary{
@@ -34,7 +36,13 @@
     padding: 5px;
 }
 
-.login-main-div{
-    margin-left: 33vw;
-    margin-top: 10vh;
+.mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 15%
+}
+
+.tablet{
+    background-color: green;
 }

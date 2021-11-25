@@ -18,9 +18,8 @@ class App extends React.Component{
   render(){
     return(
       <>
-        
         <BrowserRouter>
-        <img src="https://yt3.ggpht.com/bfP5JOmJYINOnJhwTFr1SVj4gHocn8U1TlRLNtdVMVmKB3S06z751pYEePhQQ8j-PDDeFU30tAU=s88-c-k-c0x00ffffff-no-rj" className=""alt="Logo criptoP2P" />
+        <img src="https://yt3.ggpht.com/bfP5JOmJYINOnJhwTFr1SVj4gHocn8U1TlRLNtdVMVmKB3S06z751pYEePhQQ8j-PDDeFU30tAU=s88-c-k-c0x00ffffff-no-rj" className="logo" alt="Logo criptoP2P" />
         <br/>
         <LanguageSelector/>
           <Switch>
