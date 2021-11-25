@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useTranslation } from "react-i18next";
 import User from './User'
 import './styles/Users.css'
+import NavBar from './Navbar';
 
 function Users(){
     const [users,setUsers] = useState({})
@@ -25,6 +26,7 @@ function Users(){
 
     return(
         <>
+            <NavBar/>
             <div className="usersDetails">
                 {
                     showUsers && users.map(user => <User name={user.name} surname={user.surname} email={user.email} address={user.address} cvu={user.cvu}

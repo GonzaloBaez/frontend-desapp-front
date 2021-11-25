@@ -30,6 +30,9 @@ function Activity({id,user, hour ,
         const goToPendingActivities = (event) =>{
             history.push("/pending-activities")
           }
+        
+        const totalPriceFixed = String(totalPrice)
+        const quoteFixed = String(quote)
 
     return(
         <>
@@ -40,8 +43,8 @@ function Activity({id,user, hour ,
                     <p className="card-text">{t("usuario")+": " + user}</p>
                     <p className="card-text">{t("hora")+": "+ hour}</p>
                     <p className="card-text">{t("valorUnitario")+": USD "+ unitValue}</p>
-                    <p className="card-text">{t("cotizacion")+": ARS "+ quote}</p>
-                    <p className="card-text">{t("precioTotal")+": ARS "+ totalPrice}</p>
+                    <p className="card-text">{t("cotizacion")+": "+ t('quoteFixed',{quoteFixed})}</p>
+                    <p className="card-text">{t("precioTotal")+": "+ t('totalPrice',{ totalPriceFixed })}</p>
                     <p className="card-text">{t("cantidadDeCripto")+": "+ amount}</p>
                     <p className="card-text">{t("reputacion")+": "+ reputation}</p>
                     { (loggedUser != user) &&

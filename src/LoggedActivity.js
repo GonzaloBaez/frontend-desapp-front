@@ -12,6 +12,9 @@ function LoggedActivity({id,user, hour ,
         };
         const { t, i18n } = useTranslation();
 
+        const totalPriceFixed = String(totalPrice)
+        const quoteFixed = String(quote)
+
     return(
         <>
             <div class="card w-50 cardCriptoQuote">
@@ -22,8 +25,8 @@ function LoggedActivity({id,user, hour ,
                     <p className="card-text">{t("contraparte")+": "+ (counterPart != null? counterPart: "Sin contraparte")}</p>
                     <p className="card-text">{t("hora")+": "+ hour}</p>
                     <p className="card-text">{t("valorUnitario")+": USD "+ unitValue}</p>
-                    <p className="card-text">{t("cotizacion")+": ARS "+ quote}</p>
-                    <p className="card-text">{t("precioTotal")+": ARS "+ totalPrice}</p>
+                    <p className="card-text">{t("cotizacion")+": "+ t('quoteFixed',{quoteFixed})}</p>
+                    <p className="card-text">{t("precioTotal")+": "+ t('totalPrice',{ totalPriceFixed })}</p>
                     <p className="card-text">{t("cantidadDeCripto")+": "+ amount}</p>
                     <p className="card-text">{t("reputacion")+": "+ reputation}</p>
                     <p className="card-text">{t("estado")+": "+ t(""+state)}</p>

@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react';
 import axios from 'axios';
 import { useTranslation } from "react-i18next";
 import PendingActivity from './PendingActivity';
+import NavBar from './Navbar';
 function PendingActivities(){
 
     const [showActivities,setShowActivities] = useState(false)
@@ -27,6 +28,7 @@ function PendingActivities(){
     
     return(
         <>
+        <NavBar/>
         <div className="transactions">
             {
                 activities.length

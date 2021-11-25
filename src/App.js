@@ -10,15 +10,19 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 import Activities from './Activities';
 import LoggedActivities from './LoggedActivities';
 import PendingActivities from './PendingActivities';
-import NavBar from './Navbar.js'
+import NavBar from './Navbar.js';
+import LanguageSelector from './LanguageSelector';
+
 
 class App extends React.Component{
   render(){
     return(
       <>
-      
+        
         <BrowserRouter>
-          <NavBar/>
+        <img src="https://yt3.ggpht.com/bfP5JOmJYINOnJhwTFr1SVj4gHocn8U1TlRLNtdVMVmKB3S06z751pYEePhQQ8j-PDDeFU30tAU=s88-c-k-c0x00ffffff-no-rj" className=""alt="Logo criptoP2P" />
+        <br/>
+        <LanguageSelector/>
           <Switch>
             <PublicRoute exact path="/" component={Login} />
             <PublicRoute exact path="/register" component={Register} />

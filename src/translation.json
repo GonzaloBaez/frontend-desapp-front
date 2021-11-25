@@ -3,6 +3,8 @@
         "translation": {
             "dates":"{{ date, short }}",
             "currency":"{{ currency, currency}}",
+            "totalPrice":"{{ totalPriceFixed, totalPrice}}",
+            "quoteFixed":"{{ quoteFixed, quoteFixed}}",
             "language": {
                 "enUS": "English",
                 "es": "Spanish"
@@ -71,6 +73,8 @@
         "translation": {
             "dates":"{{ date, short }}",
             "currency":"{{ currency, currency}}",
+            "totalPrice":"{{ totalPriceFixed, totalPrice}}",
+            "quoteFixed":"{{ quoteFixed, quoteFixed}}",
             "language": {
                 "enUS": "Ingles",
                 "es": "Español"

@@ -3,6 +3,7 @@ import CriptoQuote from './CriptoQuote';
 import axios from 'axios';
 import './styles/Home.css'
 import { useTranslation } from "react-i18next";
+import NavBar from './Navbar';
 function Home(){
 
     const [criptos,setCriptos] = useState({});
@@ -44,16 +45,17 @@ function Home(){
     
     return(
         <>
-        <div className="criptoQuotes">
-            {
-                showCriptos && criptos.map(cripto => <CriptoQuote symbol={cripto.symbol} price={cripto.price} dollarQuote={dollarQuote.v} date={cripto.date} hour={cripto.hour} key={cripto.symbol}/>)
-            }
-            {!showCriptos &&
-                        <div className="alert alert-info" role="alert">
-                            {t("cargandoCotizaciones")}
-                        </div>
-            }
-        </div>
+            <NavBar/>
+            <div className="criptoQuotes">
+                {
+                    showCriptos && criptos.map(cripto => <CriptoQuote symbol={cripto.symbol} price={cripto.price} dollarQuote={dollarQuote.v} date={cripto.date} hour={cripto.hour} key={cripto.symbol}/>)
+                }
+                {!showCriptos &&
+                            <div className="alert alert-info" role="alert">
+                                {t("cargandoCotizaciones")}
+                            </div>
+                }
+            </div>
         </>
     )
 }

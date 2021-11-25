@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react';
 import axios from 'axios';
 import Activity from './Activity';
 import { useTranslation } from "react-i18next";
+import NavBar from './Navbar';
 
 function Activities(){
 
@@ -29,6 +30,7 @@ function Activities(){
     
     return(
         <>
+            <NavBar/>
             <div className="transactions">
                 {
                     activities.length

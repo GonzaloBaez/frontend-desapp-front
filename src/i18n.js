@@ -28,7 +28,7 @@ i18n.use(initReactI18next) // passes i18n down to react-i18next
 
 						return formatDate(date, "P", { locale })
 					}
-					if (format === "currency"){
+					if (format === "currency" || format === "totalPrice" || format === 'quoteFixed'){
 
 						let formatLng = "es-AR"
 						let style = {style: 'currency', currency:'ARS'}

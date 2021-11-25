@@ -40,7 +40,8 @@ function PendingActivity({id,user, hour ,
                     console.log(error)
                 })
         }
-        
+        const totalPriceFixed = String(totalPrice)
+        const quoteFixed = String(quote)
 
     return(
         <>
@@ -52,8 +53,8 @@ function PendingActivity({id,user, hour ,
                     <p className="card-text">{"Reputación: "+ reputation}</p>
                     <p className="card-text">{t("hora")+": "+ hour}</p>
                     <p className="card-text">{t("valorUnitario")+": USD "+ unitValue}</p>
-                    <p className="card-text">{t("cotizacion")+": ARS "+ quote}</p>
-                    <p className="card-text">{t("precioTotal")+": ARS "+ totalPrice}</p>
+                    <p className="card-text">{t("cotizacion")+": "+ t('quoteFixed',{quoteFixed})}</p>
+                    <p className="card-text">{t("precioTotal")+": "+ t('totalPrice',{ totalPriceFixed })}</p>
                     <p className="card-text">{t("cantidadDeCripto")+": "+ amount}</p>
                     <p className="card-text">{t("direccionDeEnvio")+": "+ (type == 'Compra'? (t("billetera")+" " +wallet):("CBU/CVU " +cvu))}</p>
                     {(state != 'Cerrada') && 

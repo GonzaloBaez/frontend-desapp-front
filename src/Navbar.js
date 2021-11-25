@@ -23,10 +23,6 @@ function NavBar(){
       history.push("/users")
     }
 
-    const changeLanguage = (lng) => {
-      i18n.changeLanguage(lng);
-    };
-
     const goToHome = (event) =>{
       event.preventDefault()
       history.push("/home")
@@ -50,16 +46,13 @@ function NavBar(){
         <>
         <nav className={"navbar navbar-sticky"}>
         <div className="bar">
-          <img src="https://yt3.ggpht.com/bfP5JOmJYINOnJhwTFr1SVj4gHocn8U1TlRLNtdVMVmKB3S06z751pYEePhQQ8j-PDDeFU30tAU=s88-c-k-c0x00ffffff-no-rj" className=""alt="Logo criptoP2P" />
+          
           <div className="input-group">
             <div className="input-group-prepend">
             <div>
-              <img src="https://image.freepik.com/iconos-gratis/logout_318-10026.jpg" className="btn-logout" onClick={logout} width="40" height="40" alt="Logo logout"/></div>
+              <img src="https://image.freepik.com/iconos-gratis/logout_318-10026.jpg" className="btn-logout" onClick={logout} width="40" height="40" alt="Logo logout"/>
             </div>
-            <select onChange={(e) => changeLanguage(e.target.value)}>
-                    <option value="es">{t("language.es")}</option>
-                    <option value="enUS">{t("language.enUS")}</option>
-            </select>
+            </div>
             <button type="button" class="btn btn-dark" onClick={goToHome}>{t("inicio")}</button>
             <button type="button" class="btn btn-dark" onClick={goToTransactions}>{t("actividades")}</button>
             <button type="button" class="btn btn-dark" onClick={goToLoggedTransactions}>{t("misActividades")}</button>
