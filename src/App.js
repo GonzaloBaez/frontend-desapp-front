@@ -10,16 +10,17 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 import Activities from './Activities';
 import LoggedActivities from './LoggedActivities';
 import PendingActivities from './PendingActivities';
-import NavBar from './Navbar.js';
 import LanguageSelector from './LanguageSelector';
+import dispositive from './dispositive';
+import logo from './crypto-logo.jpg'
 
 
-class App extends React.Component{
-  render(){
+function App(){
+  let actualDispositive = dispositive()
     return(
       <>
         <BrowserRouter>
-        <img src="https://yt3.ggpht.com/bfP5JOmJYINOnJhwTFr1SVj4gHocn8U1TlRLNtdVMVmKB3S06z751pYEePhQQ8j-PDDeFU30tAU=s88-c-k-c0x00ffffff-no-rj" className="logo" alt="Logo criptoP2P" />
+        <img src={logo} className={"logo-"+actualDispositive} alt="Logo criptoP2P" />
         <br/>
         <LanguageSelector/>
           <Switch>
@@ -34,6 +35,6 @@ class App extends React.Component{
       </BrowserRouter>
     </>
     );
-  }
 }
+
 export default App;

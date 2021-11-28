@@ -44,5 +44,7 @@
 }
 
 .tablet{
-    background-color: green;
+    display: flex;
+    flex-direction: column;
+    margin: 10vh;
 }

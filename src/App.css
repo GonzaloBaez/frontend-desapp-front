@@ -29,6 +29,33 @@
   color: #61dafb;
 }
 
+.logo-galaxy {
+  margin-left: 72px;
+}
+
+.logo-pixel {
+  margin-left: 103px;
+}
+
+.logo-iphone5 {
+  margin-left: 55px;
+}
+
+.logo-iphone6 {
+  margin-left: 87px;
+}
+
+.logo-iphonePlus {
+  margin-left: 105px;
+}
+
+.logo-surface {
+  margin-left: 161px;
+}
+
+.logo-galaxyFold {
+  margin-left: 37px;
+}
 
 
 @keyframes App-logo-spin {

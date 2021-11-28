@@ -4,10 +4,17 @@ import { useTranslation } from "react-i18next";
 import User from './User'
 import './styles/Users.css'
 import NavBar from './Navbar';
+import useMediaQuery from './useMediaQuery';
+
 
 function Users(){
     const [users,setUsers] = useState({})
     const [showUsers,setShowUsers] = useState(false)
+
+    const isMobile = useMediaQuery(768);
+    const isTablet = useMediaQuery(1223);
+    const isDekstop = useMediaQuery(1330);
+    const dispositive = isMobile ? "-mobile" : isDekstop ? "-desktop" : ""
 
     useEffect(()=>{
         getUsers()
@@ -27,7 +34,8 @@ function Users(){
     return(
         <>
             <NavBar/>
-            <div className="usersDetails">
+
+            <div className={"users-details"+dispositive}>
                 {
                     showUsers && users.map(user => <User name={user.name} surname={user.surname} email={user.email} address={user.address} cvu={user.cvu}
                                                    wallet={user.wallet} points={user.points} operations={user.operations} reputation={user.reputation}/>)
