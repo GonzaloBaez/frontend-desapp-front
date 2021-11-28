@@ -12,7 +12,6 @@ import LoggedActivities from './LoggedActivities';
 import PendingActivities from './PendingActivities';
 import LanguageSelector from './LanguageSelector';
 import dispositive from './dispositive';
-import logo from './crypto-logo.jpg'
 
 
 function App(){
@@ -20,7 +19,7 @@ function App(){
     return(
       <>
         <BrowserRouter>
-        <img src={logo} className={"logo-"+actualDispositive} alt="Logo criptoP2P"/>
+        <img src="https://i.imgur.com/WEedVqL.png" className={"logo-"+actualDispositive + " " + "logo-position"} alt="Logo criptoP2P"/>
         <br/>
         <LanguageSelector/>
           <Switch>

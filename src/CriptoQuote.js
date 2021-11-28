@@ -98,7 +98,7 @@ function CriptoQuote({symbol,price,dollarQuote,date,hour}){
 
     return(
         <>
-            <div class="card w-50 cardCriptoQuote">
+            <div class="card cardCriptoQuote">
                 <div class="card-body">
                     <h5 class="card-title">{symbol}</h5>
                     <p className="card-text">{t("price") + ": " + t('currency',{ currency })}</p>

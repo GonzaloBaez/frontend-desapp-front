@@ -14,7 +14,7 @@ function Users(){
     const isMobile = useMediaQuery(768);
     const isTablet = useMediaQuery(1223);
     const isDekstop = useMediaQuery(1330);
-    const dispositive = isMobile ? "-mobile" : isDekstop ? "-desktop" : ""
+    const dispositive = "-mobile"
 
     useEffect(()=>{
         getUsers()

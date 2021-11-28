@@ -29,51 +29,57 @@
   color: #61dafb;
 }
 
-.logo-galaxy {
+.logo-position{
   width: 50%;
   height: auto;
+  margin-top: 3vh;
+}
+.logo-galaxy {
+  
   margin-left: 89px;
 }
 
 .logo-pixel {
-  width: 50%;
-  height: auto;
+  
   margin-left: 101px;
 }
 
 .logo-iphone5 {
-  width: 50%;
-  height: auto;
+  
   margin-left: 80px;
 }
 
 .logo-iphone6 {
-  width: 50%;
-  height: auto;
+  
   margin-left: 91px;
 }
 
 .logo-iphonePlus {
-  width: 50%;
-  height: auto;
+  
   margin-left: 101px;
 }
 
 .logo-surface {
-  width: 50%;
-  height: auto;
+  
   margin-left: 130px;
 }
 
 .logo-galaxyFold {
-  width: 50%;
-  height: auto;
+  
   margin-left: 61px;
 }
 
 .logo-desktop{
-  width: 20%;
+  width: 25vh;
+  margin-left: 40%;
   height: auto;
+}
+
+.languageSelector{
+  position:absolute;
+  top:0;
+  right:0;
+  width: 105px;
 }
 
 @keyframes App-logo-spin {

@@ -11,7 +11,7 @@ function User({name,surname,email,address,cvu,wallet,points,operations,reputatio
             <div className="users-list">
                 <div className="user-dropdown-button">
                     <Dropdown 
-                        className="btn btn-info dropdown-toggle"
+                        className="btn btn-info asd dropdownColorStyle"
                         onClick={() => setOpen(!open)}
                         aria-controls="example-collapse-text"
                         aria-expanded={open}>

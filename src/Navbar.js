@@ -50,7 +50,7 @@ function NavBar(){
           <div className="input-group">
             <div className="input-group-prepend">
             <div>
-              <img src="https://image.freepik.com/iconos-gratis/logout_318-10026.jpg" className="btn-logout" onClick={logout} width="40" height="40" alt="Logo logout"/>
+              <img src="https://i.imgur.com/Wp00mgH.png" className="btn-logout" onClick={logout} width="40" height="40" alt="Logo logout"/>
             </div>
             </div>
             <button type="button" class="btn btn-dark" onClick={goToHome}>{t("inicio")}</button>

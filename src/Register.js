@@ -15,6 +15,8 @@ function Register(){
             [event.target.name]: event.target.value,
         });
     }
+    const [isInvalidRegister,setIsInvalidRegister] = useState(false)
+    const [errorMessage,setErrorMessage] = useState("error")
     const { t, i18n } = useTranslation();
     const handleRegister = (event) =>{
         event.preventDefault();
@@ -24,6 +26,7 @@ function Register(){
                 console.log(response.data)
                 history.push('/')
             }))
+            .catch((error) => {setErrorMessage(error.response.data); setIsInvalidRegister(true)})
     }
 
     return(
@@ -54,6 +57,11 @@ function Register(){
                 <div className="form-group">  
                     <button required type="submit" className="btn btn-primary"> {t("registrar")} </button>
                 </div>
+                {isInvalidRegister &&
+                        <div class="alert alert-warning" role="alert">
+                            {errorMessage}
+                        </div>
+                    }
              </form>
          </div>
         </>

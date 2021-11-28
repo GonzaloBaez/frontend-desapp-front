@@ -9,7 +9,7 @@ function LanguageSelector(){
       };
       return(
         <>
-            <select onChange={(e) => changeLanguage(e.target.value)}>
+            <select onChange={(e) => changeLanguage(e.target.value)} className="languageSelector form-select">
                 <option value="es">{t("language.es")}</option>
                 <option value="enUS">{t("language.enUS")}</option>
             </select>
