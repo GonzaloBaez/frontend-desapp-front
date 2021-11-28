@@ -29,10 +29,15 @@ function Register(){
             .catch((error) => {setErrorMessage(error.response.data); setIsInvalidRegister(true)})
     }
 
+    const handleCancel = (event) =>{
+        event.preventDefault()
+        history.push('/')
+    }
+
     return(
         <>
          <div className="login-main-div">
-             <form className="register-form" onSubmit={handleRegister}>
+             <form className="register-form" onSubmit={handleRegister} onnCancel={handleCancel}>
                 <div className="form-group">
                     <input required className="form-control" name= "name" type="text"  value = {data.name} onChange = {handleInputChange} placeholder={t("nombre")}/>
                 </div>
@@ -56,6 +61,9 @@ function Register(){
                 </div>
                 <div className="form-group">  
                     <button required type="submit" className="btn btn-primary"> {t("registrar")} </button>
+                </div>
+                <div className="form-group">
+                    <button className="btn btn-warning" onClick={handleCancel}>{t("cancelar")}</button>
                 </div>
                 {isInvalidRegister &&
                         <div class="alert alert-warning" role="alert">

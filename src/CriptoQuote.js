@@ -3,9 +3,11 @@ import React,{useState} from 'react';
 import { useTranslation } from "react-i18next";
 import axios from 'axios';
 import "./styles/CriptoQuote.css"
+import useMediaQuery from './useMediaQuery';
 
 function CriptoQuote({symbol,price,dollarQuote,date,hour}){
-    
+    const isMobile = useMediaQuery(542)
+    const actualDispositive = isMobile ? "mobileQ" : "desktopQ"
     const [showModelAmount, setShowModelAmount] = useState(false);
     const [showModelCreationOk, setShowModelCreationOk] = useState(false);
     const [showModelCreationFailed, setShowModelCreationFailed] = useState(false);
@@ -98,7 +100,7 @@ function CriptoQuote({symbol,price,dollarQuote,date,hour}){
 
     return(
         <>
-            <div class="card cardCriptoQuote">
+            <div class={"card cardCriptoQuote " +actualDispositive}>
                 <div class="card-body">
                     <h5 class="card-title">{symbol}</h5>
                     <p className="card-text">{t("price") + ": " + t('currency',{ currency })}</p>

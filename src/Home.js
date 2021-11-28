@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import CriptoQuote from './CriptoQuote';
 import axios from 'axios';
-import './styles/Home.css'
+import './styles/CriptoQuote.css'
 import { useTranslation } from "react-i18next";
 import NavBar from './Navbar';
 function Home(){
