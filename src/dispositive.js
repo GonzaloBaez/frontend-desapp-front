@@ -12,7 +12,7 @@ function Dispositive(){
 
     let dispositive = galaxyFold ? "galaxyFold" : iphone5 ? "iphone5" : galaxy ? "galaxy" : iphone6 ? "iphone6" : pixel ? "pixel" : iphonePlus ? "iphonePlus" : surface ? "surface" : "desktop"
     
-
+    console.log(dispositive)
     return dispositive
 }
 

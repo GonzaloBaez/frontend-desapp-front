@@ -20,7 +20,7 @@ function App(){
     return(
       <>
         <BrowserRouter>
-        <img src={logo} className={"logo-"+actualDispositive} alt="Logo criptoP2P" />
+        <img src={logo} className={"logo-"+actualDispositive} alt="Logo criptoP2P"/>
         <br/>
         <LanguageSelector/>
           <Switch>
