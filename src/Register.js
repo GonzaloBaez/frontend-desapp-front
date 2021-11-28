@@ -45,25 +45,32 @@ function Register(){
         <>
          <div className={dispositive}>
              <form className={"login-form-" + dispositive} onSubmit={handleRegister}>
-                <div className="form-group">
+                <div className="form-group input-group">
+                    <span class="input-group-text">{t("nombre")}</span>
                     <input required className="form-control" name= "name" type="text"  value = {data.name} onChange = {handleInputChange} placeholder={t("nombre")}/>
                 </div>
-                <div className="form-group">
+                <div className="form-group input-group">
+                    <span class="input-group-text">{t("apellido")}</span>
                     <input required className="form-control" name= "surname" type="text"  value = {data.surname} onChange = {handleInputChange} placeholder={t("apellido")}/>
                 </div>
-                <div className="form-group">
+                <div className="form-group input-group">
+                    <span class="input-group-text">{"Email"}</span>
                     <input required className="form-control" name= "email" type="text"  value = {data.email} onChange = {handleInputChange} placeholder={"Email"}/>
                 </div>
-                <div className="form-group">
+                <div className="form-group input-group">
+                    <span class="input-group-text">{t("direccion")}</span>
                     <input required className="form-control" name= "address" type="text"  value = {data.address} onChange = {handleInputChange} placeholder={t("direccion")}/>
                 </div>
-                <div className="form-group">
+                <div className="form-group input-group">
+                    <span class="input-group-text">{t("contraseña")}</span>
                     <input required className="form-control" name= "password" type="password"  value = {data.password} onChange = {handleInputChange} placeholder={t("contraseña")}/>
                 </div>
-                <div className="form-group">
+                <div className="form-group input-group">
+                    <span class="input-group-text">{"Cvu"}</span>
                     <input required className="form-control" name= "cvu" type="text"  value = {data.cvu} onChange = {handleInputChange} placeholder="Cvu"/>
                 </div>
-                <div className="form-group">
+                <div className="form-group input-group">
+                    <span class="input-group-text">{t("billetera")}</span>
                     <input required className="form-control" name= "wallet" type="text"  value = {data.wallet} onChange = {handleInputChange} placeholder={t("billetera")}/>
                 </div>
                 <div className="form-group">  

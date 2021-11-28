@@ -53,10 +53,12 @@ function Login(){
         <>
             <div className={dispositive}>
                 <form className={"login-form-" + dispositive} onSubmit={handleLogin}>
-                    <div className="form-group">
+                    <div className="form-group input-group mb-3">
+                        <span class="input-group-text">Email</span>
                         <input required className="form-control" name= "username" type="text"  value = {data.username} onChange = {handleInputChange} placeholder="Email"/>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group input-group">
+                        <span class="input-group-text">{t("contraseña")}</span>
                         <input required className="form-control" name= "password" type="password"  value = {data.password} onChange = {handleInputChange} placeholder={t("contraseña")}/>
                     </div>
                     <div className="form-group">  
