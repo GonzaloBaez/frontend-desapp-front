@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
+import useMediaQuery from "./useMediaQuery";
+
 function Register(){
     let history = useHistory()
 
@@ -15,6 +17,11 @@ function Register(){
             [event.target.name]: event.target.value,
         });
     }
+    const isMobile = useMediaQuery(768);
+    const isTablet = useMediaQuery(1223);
+    const isDekstop = useMediaQuery(1330);
+
+    let dispositive = isMobile ? "mobile" : isTablet ? "tablet" : "desktop"
     const [isInvalidRegister,setIsInvalidRegister] = useState(false)
     const [errorMessage,setErrorMessage] = useState("error")
     const { t, i18n } = useTranslation();
@@ -29,10 +36,15 @@ function Register(){
             .catch((error) => {setErrorMessage(error.response.data); setIsInvalidRegister(true)})
     }
 
+    const goToLogin = (event) =>{
+        event.preventDefault()
+        history.push('/')
+    }
+
     return(
         <>
-         <div className="login-main-div">
-             <form className="register-form" onSubmit={handleRegister}>
+         <div className={dispositive}>
+             <form className={"login-form-" + dispositive} onSubmit={handleRegister}>
                 <div className="form-group">
                     <input required className="form-control" name= "name" type="text"  value = {data.name} onChange = {handleInputChange} placeholder={t("nombre")}/>
                 </div>
@@ -56,6 +68,9 @@ function Register(){
                 </div>
                 <div className="form-group">  
                     <button required type="submit" className="btn btn-primary"> {t("registrar")} </button>
+                </div>
+                <div className="form-group">
+                    <button variant="secondary" type="button" class="btn btn-warning" onClick={goToLogin}>{t("cancelar")}</button>
                 </div>
                 {isInvalidRegister &&
                         <div class="alert alert-warning" role="alert">
